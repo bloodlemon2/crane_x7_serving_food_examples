@@ -41,7 +41,7 @@
       <uri>
         https://fuel.gazebosim.org/1.0/GoogleResearch/models/Room_Essentials_Salad_Plate_Turquoise
       </uri>
-      <pose>0.40 0 1.1 0 0 0</pose>
+      <pose>0.30 0 1.1 0 0 0</pose>
     </include>
 
 
