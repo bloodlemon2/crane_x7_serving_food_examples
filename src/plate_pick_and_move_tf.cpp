@@ -67,8 +67,8 @@ public:
     moveit_msgs::msg::JointConstraint joint_constraint;
     joint_constraint.joint_name = "crane_x7_lower_arm_fixed_part_joint";
     joint_constraint.position = 0.0;
-    joint_constraint.tolerance_above = angles::from_degrees(30);
-    joint_constraint.tolerance_below = angles::from_degrees(30);
+    joint_constraint.tolerance_above = angles::from_degrees(45);
+    joint_constraint.tolerance_below = angles::from_degrees(45);
     joint_constraint.weight = 1.0;
     constraints.joint_constraints.push_back(joint_constraint);
 
@@ -176,13 +176,13 @@ private:
     control_gripper(GRIPPER_OPEN);
 
     // 掴みに行く
-    control_arm(target_position.x() - 0.07, target_position.y(), target_position.z() + 0.08, -180, -30, 0);
+    control_arm(target_position.x() - 0.07, target_position.y(), target_position.z() + 0.07, -180, -30, 0);
 
     // ハンドを閉じる
     control_gripper(GRIPPER_CLOSE);
 
     // 持ち上げる
-    control_arm(target_position.x() - 0.07, target_position.y(), target_position.z() + 0.12, -180, -30, 0);
+    control_arm(target_position.x() - 0.05, target_position.y(), target_position.z() + 0.12, -180, -30, 0);
 
     // 移動する
     control_arm(0.2, 0.2, 0.2, -180, -30, 0);
