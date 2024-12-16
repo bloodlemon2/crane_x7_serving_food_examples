@@ -5,40 +5,39 @@
 
 ## このパッケージを使用前に
 ### ROS 2及びCRANE-X7セットアップ  
-  この資料はUbuntu 22.04を元に書いています.   
-  * ROS 2インストール  
-　　上田先生の[動画](https://youtu.be/mBhtD08f5KY)及び[インストールスクリプト](https://github.com/ryuichiueda/ros2_setup_scripts)を参照し, インストールを行ってください.   
-  * CRANE-X7及び関連パッケージのインストール  
-　　[RT社公式リポジトリ](https://github.com/rt-net/crane_x7_ros/tree/ros2)よりインストールできます. 以下の手順でインストールしてください.
-    ```
-    # CRANE-X7のリポジトリをクローン
-    $ source /opt/ros/humble/setup.bash
-    $ mkdir -p ~/ros2_ws/src
-    $ cd ~/ros2_ws/src
-    $ git clone -b ros2 https://github.com/rt-net/crane_x7_ros.git
-    $ git clone -b ros2 https://github.com/rt-net/crane_x7_description.git
+この資料はUbuntu 22.04を元に書いています.   
+- ROS 2インストール  
+上田先生の[動画](https://youtu.be/mBhtD08f5KY)及び[インストールスクリプト](https://github.com/ryuichiueda/ros2_setup_scripts)を参照し, インストールを行ってください.   
+- CRANE-X7及び関連パッケージのインストール  
+[RT社公式リポジトリ](https://github.com/rt-net/crane_x7_ros/tree/ros2)よりインストールできます. 以下の手順でインストールしてください.
+```
+# CRANE-X7のリポジトリをクローン
+$ source /opt/ros/humble/setup.bash
+$ mkdir -p ~/ros2_ws/src
+$ cd ~/ros2_ws/src
+$ git clone -b ros2 https://github.com/rt-net/crane_x7_ros.git
+$ git clone -b ros2 https://github.com/rt-net/crane_x7_description.git
 
-    # 依存パッケージのインストール
-    $ rosdep install -r -y -i --from-paths .
+# 依存パッケージのインストール
+$ rosdep install -r -y -i --from-paths .
 
-    # ビルドをしてインストール完了
-    $ cd ~/ros2_ws
-    $ colcon build --symlink-install
-    $ source ~/ros2_ws/install/setup.bash
-    ```
-    ([こちら](https://github.com/rt-net/crane_x7_ros/tree/ros2/README.md)から引用)
-    インストールが完了したら, RT社のパッケージに含まれるサンプルコードをシミュレータ(Gazebo)で試すことができます. 詳しくは
-    [こちら](https://github.com/rt-net/crane_x7_ros/tree/ros2/crane_x7_examples)を参照してください. 
-  * USBポートの設定（実機のCRANE-X7を動かす際に必要となります）
-  ```
-  # 一時的な付与の場合
-  $ sudo chmod 666 /dev/ttyUSB0
+# ビルドをしてインストール完了
+$ cd ~/ros2_ws
+$ colcon build --symlink-install
+$ source ~/ros2_ws/install/setup.bash
+```
+([こちら](https://github.com/rt-net/crane_x7_ros/tree/ros2/README.md)から引用)
+インストールが完了したら, RT社のパッケージに含まれるサンプルコードをシミュレータ(Gazebo)で試すことができます. 詳しくは[こちら](https://github.com/rt-net/crane_x7_ros/tree/ros2/crane_x7_examples)を参照してください. 
+-  USBポートの設定（実機のCRANE-X7を動かす際に必要となります）
+```
+# 一時的な付与の場合
+$ sudo chmod 666 /dev/ttyUSB0
 
-  # 永続的な付与の場合(再起動を伴います)
-  $ sudo usermod -aG dialout $USER
-  $ reboot
-  ```
-  crane_x7_controlの[README](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_control/README.md)に詳しく書いてあります. 
+# 永続的な付与の場合(再起動を伴います)
+$ sudo usermod -aG dialout $USER
+$ reboot
+```
+crane_x7_controlの[README](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_control/README.md)に詳しく書いてあります. 
 
 ### RealSenseセットアップ
 [IntelRealSenseのgithub
