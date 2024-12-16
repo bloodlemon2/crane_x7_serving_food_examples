@@ -18,6 +18,8 @@ find_package(geometry_msgs REQUIRED)
 find_package(image_geometry REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(OpenCV REQUIRED COMPONENTS core)
+find_package(pcl_conversions REQUIRED)
+find_package(pcl_ros REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 
@@ -31,6 +33,8 @@ ament_target_dependencies(blue_color_detection
     image_geometry
     moveit_ros_planning_interface
     OpenCV
+    pcl_ros
+    pcl_conversions
     rclcpp
     tf2_geometry_msgs
 )
@@ -44,6 +48,8 @@ ament_target_dependencies(yellow_color_detection
     image_geometry
     moveit_ros_planning_interface
     OpenCV
+    pcl_ros
+    pcl_conversions
     rclcpp
     tf2_geometry_msgs
 )
@@ -68,6 +74,8 @@ ament_target_dependencies(plate_pick_and_move_tf
     image_geometry
     moveit_ros_planning_interface
     OpenCV
+    pcl_ros
+    pcl_conversions
     rclcpp
     tf2_geometry_msgs
 )

@@ -56,7 +56,7 @@ def generate_launch_description():
                                     robot_description_semantic,
                                     kinematics_yaml])
     # 画像処理のコードを起動するのはこっち
-    yellow_detection_node = Node(# name='yellow_color_detection'
+    detection_node = Node(# name='yellow_color_detection'
                           package='crane_x7_serving_food_examples',
                           executable='yellow_color_detection',
                           output='screen')
@@ -64,5 +64,5 @@ def generate_launch_description():
         declare_use_sim_time,
         SetParameter(name='use_sim_time', value=LaunchConfiguration('use_sim_time')),
         picking_node,
-        yellow_detection_node,
+        detection_node,
     ])
