@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>crane_x7_ServingFood_examples</name>
+  <name>crane_x7_serving_food_examples</name>
   <version>0.0.1</version>
   <description>設計製作論3で作成したパッケージ</description>
   <maintainer email="s23c1093hj@s.chibakoudai.jp">Tomoya Tsuji</maintainer>

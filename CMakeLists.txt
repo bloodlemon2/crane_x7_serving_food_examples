@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(crane_x7_ServingFood_examples)
+project(crane_x7_serving_food_examples)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)

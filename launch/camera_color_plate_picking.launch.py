@@ -49,7 +49,7 @@ def generate_launch_description():
     )
     # アームの動きのコードを起動するのはこっち
     picking_node = Node(# name="plate_pick_and_move_tf",
-                        package='crane_x7_ServigFood_examples',
+                        package='crane_x7_servig_food_examples',
                         executable='plate_pick_and_move_tf',
                         output='screen',
                         parameters=[{'robot_description': description_loader.load()},
@@ -57,12 +57,12 @@ def generate_launch_description():
                                     kinematics_yaml])
     # 画像処理のコードを起動するのはこっち
     blue_detection_node = Node(# name='blue_color_detection'
-                          package='crane_x7_ServingFood_examples',
+                          package='crane_x7_serving_food_examples',
                           executable='blue_color_detection',
                           output='screen')
 
     yellow_detection_node = Node(
-                          package='crane_x7_ServingFood_examples',
+                          package='crane_x7_serving_food_examples',
                           executable='yellow_color_detection',
                           output='screen')
 
