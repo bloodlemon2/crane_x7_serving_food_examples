@@ -88,7 +88,7 @@ $ source ~/.bashrc
 
 ### plate_pick_and_move
 
-<img src=https://github.com/user-attachments/assets/146868b3-4e09-47ac-9954-4d01fdc041d6 width=500px />
+<img src=https://github.com/user-attachments/assets/146868b3-4e09-47ac-9954-4d01fdc041d6 width = 500px />
 
 
 ## ライセンス
