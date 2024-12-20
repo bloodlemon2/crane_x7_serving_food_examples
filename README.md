@@ -64,6 +64,8 @@ $ realsense-viewer
 ```
 
 # このパッケージの使用方法
+## 用意が必要な物
+
 ## インストール方法
 ```
 # このリポジトリをクローン
@@ -84,8 +86,9 @@ $ source ~/.bashrc
 ```
 ## 実行手順
 
+### plate_pick_and_move
 
-https://github.com/user-attachments/assets/146868b3-4e09-47ac-9954-4d01fdc041d6
+![plate_pick_and_moveのデモ動画](https://github.com/user-attachments/assets/146868b3-4e09-47ac-9954-4d01fdc041d6)
 
 
 ## ライセンス
