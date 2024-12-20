@@ -84,6 +84,10 @@ $ source ~/.bashrc
 ```
 ## 実行手順
 
+
+https://github.com/user-attachments/assets/146868b3-4e09-47ac-9954-4d01fdc041d6
+
+
 ## ライセンス
 - このパッケージはRT Corporationの公開する[パッケージ](https://github.com/rt-net/crane_x7_ros/tree/ros2)の以下の5つファイルを改変して作成されています.
     - [camera_example.launch.py](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/launch/camera_example.launch.py)
