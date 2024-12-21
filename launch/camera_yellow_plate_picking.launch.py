@@ -62,9 +62,9 @@ def generate_launch_description():
         description=('Set true when using the gazebo simulator.')
     )
     # アームの動きのコードを起動するのはこっち
-    picking_node = Node(# name="plate_pick_and_move_tf",
+    picking_node = Node(# name="plate_yellow_pick_and_move_tf",
                         package='crane_x7_serving_food_examples',
-                        executable='plate_pick_and_move_tf',
+                        executable='plate_yellow_pick_and_move_tf',
                         output='screen',
                         parameters=[{'robot_description': description_loader.load()},
                                     robot_description_semantic,

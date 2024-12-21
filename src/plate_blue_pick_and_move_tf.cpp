@@ -170,7 +170,7 @@ private:
     control_gripper(GRIPPER_DEFAULT);
 
     // 掴む準備をする
-    control_arm(target_position.x() - 0.07, target_position.y(), target_position.z() + 0.12, -180, -30, 0);
+    control_arm(target_position.x() - 0.09, target_position.y(), target_position.z() + 0.12, -180, -30, 0);
 
     // ハンドを開く
     control_gripper(GRIPPER_OPEN);
@@ -182,19 +182,19 @@ private:
     control_gripper(GRIPPER_CLOSE);
 
     // 持ち上げる
-    control_arm(target_position.x() - 0.05, target_position.y(), target_position.z() + 0.12, -180, -30, 0);
+    control_arm(target_position.x() - 0.09, target_position.y(), target_position.z() + 0.15, -180, -30, 0);
 
-    // 移動する
-    control_arm(0.2, 0.2, 0.2, -180, -30, 0);
+    // 移動する (アームから見て左側に配膳)
+    control_arm(0.15, 0.2, 0.2, -180, -30, 0);
 
     // 下ろす
-    control_arm(0.2, 0.2, 0.11, -180, -30, 0);
+    control_arm(0.15, 0.2, 0.11, -180, -30, 0);
 
     // ハンドを開く
     control_gripper(GRIPPER_OPEN);
 
     // 少しだけハンドを持ち上げる
-    control_arm(0.1, 0.2, 0.2, -180, -30, 0);
+    control_arm(0.15, 0.2, 0.2, -180, -30, 0);
 
     // 初期姿勢に戻る
     // control_arm(0.15, 0.0, 0.3, -180, 0, 90);
