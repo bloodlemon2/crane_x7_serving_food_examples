@@ -94,9 +94,10 @@ $ source ~/.bashrc
 ### plate_pick_and_move
 特定の場所にあるお皿を掴み, 配膳するコードです.  
 次のコマンドで実行できます.
-- Gazeboで実行する場合
+- Gazeboで実行する場合  
 Gazeboで実行する場合[table.sdf](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_gazebo/worlds/table.sdf)から木のブロックを削除して, お皿のモデルを追加する必要があります.  
-table.sdfの内容を[こちら]()に変更して実行してください.
+table.sdfの内容を[こちら]()に変更して実行してください.  
+また, [plate_pick_and_move.cpp](https://github.com/bloodlemon2/crane_x7_serving_food_examples/blob/main/src/plate_pick_and_move.cpp)の103行目をz = 0.09に変更してください.
 ```
 ros2 launch crane_x7_serving_food_examples plate_pick_and_move.launch.py use_sim_time:='true'
 ```

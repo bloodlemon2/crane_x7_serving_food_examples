@@ -100,7 +100,7 @@ int main(int argc, char ** argv)
   // 掴みに行く
   target_pose.position.x = 0.2;
   target_pose.position.y = 0.0;
-  target_pose.position.z = 0.1;
+  target_pose.position.z = 0.1;    // Gazeboでお皿を掴みたい場合はz = 0.09
   q.setRPY(angles::from_degrees(-180), angles::from_degrees(-30), angles::from_degrees(0));
   target_pose.orientation = tf2::toMsg(q);
   move_group_arm.setPoseTarget(target_pose);
