@@ -4,7 +4,7 @@
 このパッケージは, ロボットアーム(CRANE-X7)単独での皿のピッキングとRGBDセンサ(RealSenseD435)を併用した色付き皿のピッキングを行うコードをまとめたROS 2パッケージです.
 
 ## このパッケージを使用前に
-### ROS 2及びCRANE-X7セットアップ  
+### ROS 2及びCRANE-X7のセットアップ  
 この資料はUbuntu 22.04を元に書いています.   
 - ROS 2インストール  
 上田先生の[動画](https://youtu.be/mBhtD08f5KY)及び[インストールスクリプト](https://github.com/ryuichiueda/ros2_setup_scripts)を参照し, インストールを行ってください.   
@@ -27,7 +27,7 @@ $ colcon build --symlink-install
 $ source ~/ros2_ws/install/setup.bash
 ```
 ([こちら](https://github.com/rt-net/crane_x7_ros/tree/ros2/README.md)から引用)  
-インストールが完了したら, RT社のパッケージに含まれるサンプルコードをシミュレータ(Gazebo)で試すことができます. 詳しくは[こちら](https://github.com/rt-net/crane_x7_ros/tree/ros2/crane_x7_examples)を参照してください. 
+インストールが完了したら, RT社のパッケージに含まれるサンプルコードをシミュレータ(Gazebo)で試すことができます. シミュレータ使いたい場合は[こちら](https://github.com/rt-net/crane_x7_ros/tree/ros2/crane_x7_examples)を確認してください. 
 -  USBポートの設定（実機のCRANE-X7を動かす際に必要となります）
 ```
 # 一時的な付与の場合
@@ -39,7 +39,7 @@ $ reboot
 ```
 crane_x7_controlの[README](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_control/README.md)に詳しく書いてあります. 
 
-### RealSenseセットアップ
+### RealSenseのセットアップ
 [IntelRealSenseのgithub
 ](https://github.com/IntelRealSense/librealsense/blob/development/doc/distribution_linux.md#installing-the-packages)を参照してください. 以下[先ほどのページ](https://github.com/IntelRealSense/librealsense/blob/development/doc/distribution_linux.md#installing-the-packages)から引用
 ```
@@ -65,7 +65,11 @@ $ realsense-viewer
 
 # このパッケージの使用方法
 ## 用意が必要な物
-
+- お皿(14cm)
+- 色紙(青色, 黄色)
+- のりまたはテープ
+お皿は100円ショップなどにあるペーパーボウルを使うと良いです.  
+色紙をお皿に貼り付けて色付き皿を作成することで色認識でお皿を配膳できます.
 ## インストール方法
 ```
 # このリポジトリをクローン
@@ -85,10 +89,38 @@ $ echo 'source ~/ros2_ws/install/setup.bash' >> ~/.bachrc
 $ source ~/.bashrc
 ```
 ## 実行手順
+シミュレータ(Gazebo)を使用する場合は[こちら](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/README.md#1-move_group%E3%81%A8gazebo%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8B), 実機(CRANE-X7)を使用する場合は[こちら](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/README.md#3-move_group%E3%81%A8controller%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8B)を確認してください.
 
 ### plate_pick_and_move
-![demo]https://github.com/user-attachments/assets/146868b3-4e09-47ac-9954-4d01fdc041d6
+特定の場所にあるお皿を掴み, 配膳するコードです.  
+次のコマンドで実行できます.
+- Gazeboで実行する場合
+Gazeboで実行する場合[table.sdf](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_gazebo/worlds/table.sdf)から木のブロックを削除して, お皿のモデルを追加する必要があります.  
+table.sdfの内容を[こちら]()に変更して実行してください.
+```
+ros2 launch crane_x7_serving_food_examples plate_pick_and_move.launch.py use_sim_time:='true'
+```
 
+- 実機で実行する場合
+```
+ros2 launch crane_x7_serving_food_examples plate_pick_and_move.launch.py
+```
+![demo](https://github.com/user-attachments/assets/146868b3-4e09-47ac-9954-4d01fdc041d6)
+### camera_blue_plate_picking
+RGBDセンサを用いて青色のお皿を掴み, 配膳するコードです.  
+RealSenseを接続して実機で実行します.[こちら](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/README.md#realsense-d435%E3%83%9E%E3%82%A6%E3%83%B3%E3%82%BF%E6%90%AD%E8%BC%89%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88)のRealSense D435マウンタ搭載モデルを使用する場合でRVizを起動してから実行してください.  
+次のコマンドで実行できます.
+```
+ros2 launch crane_x7_serving_food_examples camera_blue_plate_picking.launch.py
+```
+
+### camera_yellow_plate_picking
+RGBDセンサを用いて黄色のお皿を掴み, 配膳するコードです.  
+RealSenseを接続して実機で実行します.[こちら](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/README.md#realsense-d435%E3%83%9E%E3%82%A6%E3%83%B3%E3%82%BF%E6%90%AD%E8%BC%89%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88)のRealSense D435マウンタ搭載モデルを使用する場合でRViz>を起動してから実行してください.  
+次のコマンドで実行できます.
+```
+ros2 launch crane_x7_serving_food_examples camera_yellow_plate_picking.launch.py
+```
 
 ## ライセンス
 - このパッケージはRT Corporationの公開する[パッケージ](https://github.com/rt-net/crane_x7_ros/tree/ros2)の以下の5つファイルを改変して作成されています.
