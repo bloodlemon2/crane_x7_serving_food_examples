@@ -70,7 +70,7 @@ $ realsense-viewer
 - のりまたはテープ
 
 お皿は100円ショップなどにあるペーパーボウルを使うと良いです.  
-色紙をお皿に貼り付けて色付き皿を作成することで色認識でお皿を配膳できます.
+色紙をお皿に貼り付けて色付き皿を作成することで, 色認識でお皿を配膳できます.
 ## インストール方法
 ```
 # このリポジトリをクローン
@@ -95,7 +95,7 @@ $ source ~/.bashrc
 ### plate_pick_and_move
 特定の場所にあるお皿を掴み, 配膳するコードです.  
 Gazeboで実行する場合[table.sdf](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_gazebo/worlds/table.sdf)から木のブロックを削除して, お皿のモデルを追加する必要があります.  
-table.sdfの内容を[こちら]()に変更してから実行してください.  
+table.sdfの内容を[こちら](https://github.com/bloodlemon2/crane_x7_serving_food_examples/blob/gazebo/worlds/table.sdf)に変更してから実行してください.  
 また, [plate_pick_and_move.cpp](https://github.com/bloodlemon2/crane_x7_serving_food_examples/blob/main/src/plate_pick_and_move.cpp)の103行目をz = 0.09に変更してください.  
 次のコマンドで実行できます.
 - Gazeboで実行する場合
@@ -107,8 +107,7 @@ ros2 launch crane_x7_serving_food_examples plate_pick_and_move.launch.py use_sim
 ```
 ros2 launch crane_x7_serving_food_examples plate_pick_and_move.launch.py
 ```
-- plate_pick_and_moveのデモ動画
-
+#### plate_pick_and_moveのデモ動画
 https://github.com/user-attachments/assets/02dbadf3-9645-4934-8fe8-8588b7e20cdd
 
 ### camera_blue_plate_picking
@@ -118,7 +117,7 @@ RealSenseを接続して実機で実行します.[こちら](https://github.com/
 ```
 ros2 launch crane_x7_serving_food_examples camera_blue_plate_picking.launch.py
 ```
-- camera_blue_plate_pickingのデモ動画
+#### camera_blue_plate_pickingのデモ動画
 https://github.com/user-attachments/assets/53df314e-9f4c-49b6-84e4-77aebbd0b484
 
 ### camera_yellow_plate_picking
@@ -128,8 +127,7 @@ RealSenseを接続して実機で実行します.[こちら](https://github.com/
 ```
 ros2 launch crane_x7_serving_food_examples camera_yellow_plate_picking.launch.py
 ```
-- camera_yellow_plate_pickingのデモ動画
-
+#### camera_yellow_plate_pickingのデモ動画
 https://github.com/user-attachments/assets/8e64dbc9-8338-427f-81ba-7d680a01fc7c
 
 ## ライセンス
