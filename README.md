@@ -95,7 +95,7 @@ $ source ~/.bashrc
 ### plate_pick_and_move
 特定の場所にあるお皿を掴み, 配膳するコードです.  
 Gazeboで実行する場合[table.sdf](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_gazebo/worlds/table.sdf)から木のブロックを削除して, お皿のモデルを追加する必要があります.  
-table.sdfの内容を[こちら]()に変更して実行してください.  
+table.sdfの内容を[こちら]()に変更してから実行してください.  
 また, [plate_pick_and_move.cpp](https://github.com/bloodlemon2/crane_x7_serving_food_examples/blob/main/src/plate_pick_and_move.cpp)の103行目をz = 0.09に変更してください.  
 次のコマンドで実行できます.
 - Gazeboで実行する場合
@@ -115,7 +115,7 @@ RealSenseを接続して実機で実行します.[こちら](https://github.com/
 ```
 ros2 launch crane_x7_serving_food_examples camera_blue_plate_picking.launch.py
 ```
-https://github.com/user-attachments/assets/26ed7cc3-fe79-4c4c-a282-4b36f6b71c19
+https://github.com/user-attachments/assets/53df314e-9f4c-49b6-84e4-77aebbd0b484
 
 ### camera_yellow_plate_picking
 RGBDセンサを用いて黄色のお皿を掴み, 配膳するコードです.  
@@ -124,7 +124,7 @@ RealSenseを接続して実機で実行します.[こちら](https://github.com/
 ```
 ros2 launch crane_x7_serving_food_examples camera_yellow_plate_picking.launch.py
 ```
-![黄色の皿配膳]()
+https://github.com/user-attachments/assets/8e64dbc9-8338-427f-81ba-7d680a01fc7c
 
 ## ライセンス
 - このパッケージはRT Corporationの公開する[パッケージ](https://github.com/rt-net/crane_x7_ros/tree/ros2)の以下の5つファイルを改変して作成されています.
