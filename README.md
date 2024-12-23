@@ -11,8 +11,9 @@
 - CRANE-X7及び関連パッケージのインストール  
 [RT社公式リポジトリ](https://github.com/rt-net/crane_x7_ros/tree/ros2)よりインストールできます. 以下の手順でインストールしてください.
 ```
-# CRANE-X7のリポジトリをクローン
+# ROSの環境をセットアップ
 $ source /opt/ros/humble/setup.bash
+# crane_x7のリポジトリをダウンロード
 $ mkdir -p ~/ros2_ws/src
 $ cd ~/ros2_ws/src
 $ git clone -b ros2 https://github.com/rt-net/crane_x7_ros.git
@@ -40,8 +41,7 @@ $ reboot
 crane_x7_controlの[README](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_control/README.md)に詳しく書いてあります. 
 
 ### RealSenseのセットアップ
-[IntelRealSenseのgithub
-](https://github.com/IntelRealSense/librealsense/blob/development/doc/distribution_linux.md#installing-the-packages)を参照してください. 以下[先ほどのページ](https://github.com/IntelRealSense/librealsense/blob/development/doc/distribution_linux.md#installing-the-packages)から引用
+[IntelRealSenseのgithub](https://github.com/IntelRealSense/librealsense/blob/development/doc/distribution_linux.md#installing-the-packages)を参照してください. 以下[先ほどのページ](https://github.com/IntelRealSense/librealsense/blob/development/doc/distribution_linux.md#installing-the-packages)から引用
 ```
 # Register the server's public key:
 $ sudo mkdir -p /etc/apt/keyrings
@@ -70,7 +70,8 @@ $ realsense-viewer
 - のりまたはテープ
 
 お皿は100円ショップなどにあるペーパーボウルを使うと良いです.  
-色紙をお皿に貼り付けて色付き皿を作成することで, 色認識でお皿を配膳できます.
+色紙をお皿に貼り付けて色付き皿を作成することで, 色認識でお皿を配膳できます.  
+お皿のサイズを変える場合には[こちらのコード](https://github.com/bloodlemon2/crane_x7_serving_food_examples/tree/main/src)に変更を加える必要があります.
 ## インストール方法
 ```
 # このリポジトリをクローン
