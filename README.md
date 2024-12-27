@@ -140,15 +140,16 @@ https://github.com/user-attachments/assets/8e64dbc9-8338-427f-81ba-7d680a01fc7c
 # 引継ぎ事項
 ## 発生する可能性のあるエラーと解決法
 - RVizに二値化の画像がでない.
-    - ROS 2インストール時にOpenCVがインストールされるので, 自分で新たにOpenCVをインストールすると異なるバージョンが競合して, RVizに二値化の画像がでなくなることがあります.
+    - ROS 2インストール時にOpenCVがインストールされています. 自分で新たにOpenCVをインストールすると異なるバージョンが競合して, RVizに二値化の画像がでなくなることがあります.
     - OpenCVが異なるバージョンが競合していると, ビルドするときにも警告がでます.
     - 自分でインストールしたバージョンのOpenCVアンインストールすることをおすすめします.
 ## やり残したこと
 - GazeboにCADで作成したのモデルを入れる.
 - Gazebo上でRealSenseの動作させる.
-- [こちらのGazeboで実行する場合](https://github.com/bloodlemon2/crane_x7_serving_food_examples?tab=readme-ov-file#plate_pick_and_move)でGazeboを起動すると'[ign gazebo -r-1] [Err] [SystemPaths.cc:473] Could not resolve file [texture.png]'というエラーがでる.
+- [Gazeboで実行する場合](https://github.com/bloodlemon2/crane_x7_serving_food_examples?tab=readme-ov-file#plate_pick_and_move)でお皿を追加してGazeboを起動するとエラーがでる.
+    - '[ign gazebo -r-1] [Err] [SystemPaths.cc:473] Could not resolve file [texture.png]'というエラー内容.
     - シミュレーションをするときに, アームと皿のあたり判定などの問題は無いようでした.
-- 1つのプログラムで青色や黄色を認識し, 色によって配膳する位置を変える.
+- 一つのプログラムで複数の色を認識し, 色ごとに動作を変える.
 # ライセンス
 - このパッケージはRT Corporationの公開する[パッケージ](https://github.com/rt-net/crane_x7_ros/tree/ros2)の以下の5つファイルを改変して作成されています.
     - [camera_example.launch.py](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/launch/camera_example.launch.py)
