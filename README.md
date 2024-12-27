@@ -102,8 +102,7 @@ $ source ~/.bashrc
 
 ## plate_pick_and_move
 特定の場所にあるお皿を掴み, 配膳するコードです.  
-Gazeboで実行する場合, [crane_x7_ros/crane_x7_gazebo/worlds/table.sdf](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_gazebo/worlds/table.sdf)から木のブロックを削除して, お皿のモデルを追加する必要があります.  
-table.sdfの内容を[こちら](https://github.com/bloodlemon2/crane_x7_serving_food_examples/blob/gazebo/worlds/table.sdf)に変更してから実行してください.  
+Gazeboで実行する場合, [crane_x7_ros/crane_x7_gazebo/worlds/table.sdf](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_gazebo/worlds/table.sdf)から木のブロックを削除して, お皿のモデルを追加する必要があります. table.sdfの内容を[こちら](https://github.com/bloodlemon2/crane_x7_serving_food_examples/blob/gazebo/worlds/table.sdf)に変更してから実行してください.  
 また, [plate_pick_and_move.cpp](https://github.com/bloodlemon2/crane_x7_serving_food_examples/blob/main/src/plate_pick_and_move.cpp)の103行目をz = 0.09に変更してください.  
 次のコマンドで実行できます.
 - Gazeboで実行する場合
@@ -120,7 +119,7 @@ https://github.com/user-attachments/assets/02dbadf3-9645-4934-8fe8-8588b7e20cdd
 
 ## camera_blue_plate_picking
 RGBDセンサを用いて青色のお皿を掴み, 配膳するコードです.  
-RealSenseを接続して実機で実行します.[こちら](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/README.md#realsense-d435%E3%83%9E%E3%82%A6%E3%83%B3%E3%82%BF%E6%90%AD%E8%BC%89%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88)の'RealSense D435マウンタ搭載モデルを使用する場合'からRVizを起動してから実行してください.  
+RealSenseを接続して実機で実行します. [こちら](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/README.md#realsense-d435%E3%83%9E%E3%82%A6%E3%83%B3%E3%82%BF%E6%90%AD%E8%BC%89%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88)の'RealSense D435マウンタ搭載モデルを使用する場合'からRVizを起動してから実行してください.  
 次のコマンドで実行できます.
 ```
 ros2 launch crane_x7_serving_food_examples camera_blue_plate_picking.launch.py
@@ -130,7 +129,7 @@ https://github.com/user-attachments/assets/53df314e-9f4c-49b6-84e4-77aebbd0b484
 
 ## camera_yellow_plate_picking
 RGBDセンサを用いて黄色のお皿を掴み, 配膳するコードです.  
-RealSenseを接続して実機で実行します.[こちら](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/README.md#realsense-d435%E3%83%9E%E3%82%A6%E3%83%B3%E3%82%BF%E6%90%AD%E8%BC%89%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88)のRealSense D435マウンタ搭載モデルを使用する場合でRVizを起動してから実行してください.  
+RealSenseを接続して実機で実行します. [こちら](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/README.md#realsense-d435%E3%83%9E%E3%82%A6%E3%83%B3%E3%82%BF%E6%90%AD%E8%BC%89%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88)のRealSense D435マウンタ搭載モデルを使用する場合でRVizを起動してから実行してください.  
 次のコマンドで実行できます.
 ```
 ros2 launch crane_x7_serving_food_examples camera_yellow_plate_picking.launch.py
