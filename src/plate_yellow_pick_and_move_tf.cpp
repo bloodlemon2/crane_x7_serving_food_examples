@@ -177,6 +177,7 @@ private:
 
     // 掴みに行く
     control_arm(target_position.x() - 0.07, target_position.y(), target_position.z() + 0.07, -180, -30, 0);
+    // x座標は皿の半径0.07だけ手前で掴む. z座標も皿の縁の高さによって調整が必要.
 
     // ハンドを閉じる
     control_gripper(GRIPPER_CLOSE);
