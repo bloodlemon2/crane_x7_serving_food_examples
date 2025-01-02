@@ -87,7 +87,7 @@ $ git clone https://github.com/bloodlemon2/crane_x7_serving_food_examples.git
 
 # ビルドしてインストール完了
 $ cd ~/ros2_ws
-$ colon build
+$ colcon build
 $ source ~/ros2_ws/install/setup.bash
 
 
