@@ -93,8 +93,8 @@ $ source ~/ros2_ws/install/setup.bash
 
 # 'source ~/ros2_ws/install/setup.bash'は, ~/.bashrcに書いておくことを推奨します.   
 # 下のコマンドで.bashrcに追記できます.  
-$ echo 'source ~/ros2_ws/install/setup.bash' >> ~/.bachrc
-# .bashrcに'source ~/ros2_ws/install/setup.bash'が書かれていると, 下のコマンドが代わりに使用できます.
+$ echo 'source ~/ros2_ws/install/setup.bash' >> ~/.bashrc
+# ~/.bashrcに'source ~/ros2_ws/install/setup.bash'が書かれていると, 下のコマンドが代わりに使用できます.
 $ source ~/.bashrc
 ```
 ## 実行手順
