@@ -157,6 +157,8 @@ https://github.com/user-attachments/assets/8e64dbc9-8338-427f-81ba-7d680a01fc7c
     - [color_detection.cpp](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/src/color_detection.cpp)
     - [pick_and_place.cpp](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/src/pick_and_place.cpp)
     - [pick_and_place_tf.cpp](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/src/pick_and_place_tf.cpp)
+- このパッケージは以下のパッケージを参考にしています.
+    - [設計製作論3, ROS 2班のパッケージ](https://github.com/cit22ros2/crane_x7_simple_examples?tab=readme-ov-file)
 - このソフトウェアパッケージは, Apache License, Version 2.0に基づき公開されています.
 - ライセンス全文は[LICENSE](https://github.com/bloodlemon2/crane_x7_ServingFood_examples/blob/main/LICENSE)から確認できます.
 - © 2024 Tomoya Tsuji, Kenta Hirachi
