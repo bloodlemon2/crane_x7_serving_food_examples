@@ -68,8 +68,7 @@ $ realsense-viewer
 # このパッケージの使用方法
 ## 使用できるサンプル
 - plate_pick_and_move
-- camera_blue_plate_picking
-- camera_yellow_plate_picking
+- camera_plate_picking
 ## 用意が必要な物
 - お皿(口径140mm)
 - 色紙(青色, 黄色)
@@ -83,7 +82,7 @@ $ realsense-viewer
 # このリポジトリをクローン
 # ros2_wsは各自のROS 2のワークスペース名に変更してください
 $ cd ~/ros2_ws/src
-$ git clone https://github.com/bloodlemon2/crane_x7_serving_food_examples.git
+$ git clone -b dev https://github.com/bloodlemon2/crane_x7_serving_food_examples.git
 
 # ビルドしてインストール完了
 $ cd ~/ros2_ws
@@ -117,10 +116,16 @@ ros2 launch crane_x7_serving_food_examples plate_pick_and_move.launch.py
 #### plate_pick_and_moveのデモ動画
 https://github.com/user-attachments/assets/02dbadf3-9645-4934-8fe8-8588b7e20cdd
 
-## camera_blue_plate_picking
+## camera_plate_picking
 RGBDセンサを用いて青色, 黄色のお皿を掴み, 配膳するコードです.  
 RealSenseを接続して実機で実行します. [こちら](https://github.com/rt-net/crane_x7_ros/blob/ros2/crane_x7_examples/README.md#realsense-d435%E3%83%9E%E3%82%A6%E3%83%B3%E3%82%BF%E6%90%AD%E8%BC%89%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88)の'RealSense D435マウンタ搭載モデルを使用する場合'からRVizを起動してから実行してください.  
 次のコマンドで実行できます.
+### move_groupとcontrollerを起動する
+#### RealSense D435マウンタ搭載モデルを使用する
+```
+ros2 launch crane_x7_examples demo.launch.py port_name:=/dev/ttyUSB0 use_d435:=true
+```
+#### コマンドで実行
 ```
 ros2 launch crane_x7_serving_food_examples camera_plate_picking.launch.py
 ```
