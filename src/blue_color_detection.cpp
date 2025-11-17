@@ -31,6 +31,7 @@
 #include "opencv2/imgproc/imgproc.hpp"
 #include "cv_bridge/cv_bridge.h"
 #include "image_geometry/pinhole_camera_model.h"
+#include "std_msgs/msg/string.hpp"
 using std::placeholders::_1;
 
 class ImageSubscriber : public rclcpp::Node
@@ -49,6 +50,8 @@ public:
     camera_info_subscription_ = this->create_subscription<sensor_msgs::msg::CameraInfo>(
       "/camera/color/camera_info", 10, std::bind(&ImageSubscriber::camera_info_callback, this, _1));
 
+    color_publisher_ = this->create_publisher<std_msgs::msg::String>("detected_color", 10);
+
     image_thresholded_publisher_ =
       this->create_publisher<sensor_msgs::msg::Image>("image_thresholded", 10);
 
@@ -61,6 +64,7 @@ private:
   rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr depth_subscription_;
   rclcpp::Subscription<sensor_msgs::msg::CameraInfo>::SharedPtr camera_info_subscription_;
   rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr image_thresholded_publisher_;
+  rclcpp::Publisher<std_msgs::msg::String>::SharedPtr color_publisher_;
   sensor_msgs::msg::CameraInfo::SharedPtr camera_info_;
   sensor_msgs::msg::Image::SharedPtr depth_image_;
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
@@ -113,6 +117,9 @@ private:
 
       // 検出した領域のピクセル数が10000より大きい場合
       if (d_area > 10000) {
+        auto color_msg = std::make_shared<std_msgs::msg::String>();
+        color_msg->data = "target_blue";
+
         // カメラモデル作成
         image_geometry::PinholeCameraModel camera_model;
 
@@ -160,6 +167,9 @@ private:
         t.transform.translation.y = object_position.y;
         t.transform.translation.z = object_position.z;
         tf_broadcaster_->sendTransform(t);
+
+        // 対象物体が青色であることを配信
+        color_publisher_->publish(*color_msg);
 
         // 閾値による二値化画像を配信
         sensor_msgs::msg::Image::SharedPtr img_thresholded_msg =

@@ -59,22 +59,10 @@ ament_target_dependencies(plate_pick_and_move
     rclcpp
     tf2_geometry_msgs
 )
-add_executable(plate_blue_pick_and_move_tf
-  src/plate_blue_pick_and_move_tf.cpp
+add_executable(plate_pick_and_move_tf
+  src/plate_pick_and_move_tf.cpp
 )
-ament_target_dependencies(plate_blue_pick_and_move_tf
-    cv_bridge
-    geometry_msgs
-    image_geometry
-    moveit_ros_planning_interface
-    OpenCV
-    rclcpp
-    tf2_geometry_msgs
-)
-add_executable(plate_yellow_pick_and_move_tf
-  src/plate_yellow_pick_and_move_tf.cpp
-)
-ament_target_dependencies(plate_yellow_pick_and_move_tf
+ament_target_dependencies(plate_pick_and_move_tf
     cv_bridge
     geometry_msgs
     image_geometry
@@ -99,11 +87,7 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}/
 )
 install(TARGETS
-  plate_blue_pick_and_move_tf
-  DESTINATION lib/${PROJECT_NAME}/
-)
-install(TARGETS
-  plate_yellow_pick_and_move_tf
+  plate_pick_and_move_tf
   DESTINATION lib/${PROJECT_NAME}/
 )
 

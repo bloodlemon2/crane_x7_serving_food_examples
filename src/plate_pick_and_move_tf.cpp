@@ -1,23 +1,3 @@
-// Copyright 2024 Tomoya Tsuji
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-// Reference:
-// https://github.com/ros-planning/moveit2_tutorials/blob
-// /a547cf49ff7d1fe16a93dfe020c6027bcb035b51/doc/move_group_interface
-// /src/move_group_interface_tutorial.cpp
-// https://docs.ros.org/en/humble/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.html
-
 #include <chrono>
 #include <cmath>
 #include <memory>
@@ -97,6 +77,12 @@ public:
 
     timer_ = this->create_wall_timer(
       500ms, std::bind(&PickAndPlaceTf::on_timer, this));
+
+    color_subscription_ = this->create_subscription<std_msgs::msg::String>("detected_color", 10, [this](const std_msgs::msg::String::SharedPtr msg) {
+      latest_color_ = msg->data;
+      RCLCPP_INFO(this->get_logger(), "Received color: %s", latest_color_.c_str());
+      });
+
   }
 
 private:
@@ -145,6 +131,10 @@ private:
     }
   }
 
+  // 色の判別
+  std::string latest_color_;
+  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr color_subscription_;
+
   void init_pose()
   {
     std::vector<double> joint_values;
@@ -185,17 +175,24 @@ private:
     // 持ち上げる
     control_arm(target_position.x() - 0.09, target_position.y(), target_position.z() + 0.15, -180, -30, 0);
 
-    // 移動する (アームから見て左側に配膳)
-    control_arm(0.15, 0.2, 0.2, -180, -30, 0);
+    double place_y;
+    if (latest_color_ == "target_blue") {
+      place_y = 0.25;  //左側に配膳
+    } else if (latest_color_ == "target_yellow") {
+      place_y = -0.25;  //右側に配膳
+    }
+
+    // 移動する
+    control_arm(0.1, place_y, 0.2, -180, -30, 0);
 
     // 下ろす
-    control_arm(0.15, 0.2, 0.11, -180, -30, 0);
+    control_arm(0.1, place_y, 0.11, -180, -30, 0);
 
     // ハンドを開く
     control_gripper(GRIPPER_OPEN);
 
     // 少しだけハンドを持ち上げる
-    control_arm(0.15, 0.2, 0.2, -180, -30, 0);
+    control_arm(0.1, place_y, 0.2, -180, -30, 0);
 
     // 初期姿勢に戻る
     // control_arm(0.15, 0.0, 0.3, -180, 0, 90);
@@ -203,6 +200,8 @@ private:
 
     // ハンドを閉じる
     control_gripper(GRIPPER_DEFAULT);
+
+    control_gripper(angles::from_degrees(60.0));
   }
 
   // グリッパ制御
