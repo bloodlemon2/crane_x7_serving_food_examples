@@ -141,11 +141,11 @@ ros2 launch crane_x7_serving_food_examples camera_plate_picking.launch.py
     - 自分でインストールしたバージョンのOpenCVアンインストールすることをおすすめします.
 ## やり残したこと
 - GitHub Actionsでのテスト
-- GazeboにCADで作成したのモデルの追加
+- GazeboにCADで作成したモデルの追加
 - Gazebo上でRealSenseの動作
-- [Gazeboで実行する場合](https://github.com/bloodlemon2/crane_x7_serving_food_examples?tab=readme-ov-file#plate_pick_and_move)でお皿を追加してGazeboを起動するとエラーがでる.
+- [Gazeboで実行する場合](https://github.com/bloodlemon2/crane_x7_serving_food_examples?tab=readme-ov-file#plate_pick_and_move)でお皿を追加してGazeboを起動するとエラー
     - '[ign gazebo -r-1] [Err] [SystemPaths.cc:473] Could not resolve file [texture.png]'というエラー内容.
-    - シミュレーションをするときに, アームと皿のあたり判定などの問題は無いようでした.
+    - シミュレーションをするときに, アームと皿のあたり判定などの問題は無い
 - 一つのプログラムで複数の色を認識し, 色ごとに動作を変える.
 # ライセンス
 - このパッケージはRT Corporationの公開する[パッケージ](https://github.com/rt-net/crane_x7_ros/tree/ros2)の以下の5つファイルを改変して作成されています.
