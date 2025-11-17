@@ -130,8 +130,8 @@ ros2 launch crane_x7_examples demo.launch.py port_name:=/dev/ttyUSB0 use_d435:=t
 ros2 launch crane_x7_serving_food_examples camera_plate_picking.launch.py
 ```
 #### camera_plate_pickingのデモ動画
-[![動画](<img width="1036" height="566" alt="スクリーンショット 2025-11-17 175942" src="https://github.com/user-attachments/assets/135a9aa8-5655-4a2c-9a30-03f2ba5c5914" />
-)](https://youtu.be/tTZe7Y4fmzw)
+[![動画]<img width="1036" height="566" alt="スクリーンショット 2025-11-17 175942" src="https://github.com/user-attachments/assets/135a9aa8-5655-4a2c-9a30-03f2ba5c5914" />
+](https://youtu.be/tTZe7Y4fmzw)
 
 # 引継ぎ事項
 ## 発生する可能性のあるエラーと解決法
